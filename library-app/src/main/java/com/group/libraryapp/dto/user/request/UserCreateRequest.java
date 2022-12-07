@@ -5,6 +5,12 @@ public class UserCreateRequest {
   private String name;
   private Integer age;
 
+  // 생성자 만듬
+  public UserCreateRequest(String name, Integer age) {
+    this.name = name;
+    this.age = age;
+  }
+
   public String getName() {
     return name;
   }

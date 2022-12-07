@@ -2,6 +2,7 @@ package com.group.libraryapp.domain.user;
 
 import com.group.libraryapp.domain.book.Book;
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,13 +20,25 @@ public class User {
   @Column(nullable = false)
   private String name;
 
+  @Column(nullable = true)
   private Integer age;
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
   private final List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
-  public User() {
 
+  public User(Long id, String name) {
+    this.id = id;
+    this.name = name;
+  }
+
+  public User(Long id, String name, Integer age) {
+    this.id = id;
+    this.name = name;
+    this.age = age;
+  }
+
+  public User() {
   }
 
   public User(String name, Integer age) {
@@ -56,6 +69,9 @@ public class User {
     return name;
   }
 
+
+
+  @Nullable
   public Integer getAge() {
     return age;
   }
