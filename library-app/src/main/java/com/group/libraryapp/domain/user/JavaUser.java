@@ -1,8 +1,7 @@
 package com.group.libraryapp.domain.user;
 
-import com.group.libraryapp.calculator.domain.Book;
-import com.group.libraryapp.domain.book.JavaBook;
-import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
+import com.group.libraryapp.calculator.domain.book.Book;
+import com.group.libraryapp.calculator.domain.user.loanhistory.UserLoanHistory;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -12,7 +11,7 @@ import java.util.List;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-public class User {
+public class JavaUser {
 
   @Id
   @GeneratedValue(strategy = IDENTITY)
@@ -28,21 +27,21 @@ public class User {
   private final List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
 
-  public User(Long id, String name) {
+  public JavaUser(Long id, String name) {
     this.id = id;
     this.name = name;
   }
 
-  public User(Long id, String name, Integer age) {
+  public JavaUser(Long id, String name, Integer age) {
     this.id = id;
     this.name = name;
     this.age = age;
   }
 
-  public User() {
+  public JavaUser() {
   }
 
-  public User(String name, Integer age) {
+  public JavaUser(String name, Integer age) {
     if (name.isBlank()) {
       throw new IllegalArgumentException("이름은 비어 있을 수 없습니다");
     }
@@ -54,8 +53,12 @@ public class User {
     this.name = name;
   }
 
+  /**
+   * id를 디폴트로 비워둘수가 없고 항상 null로 채워줘야한다.
+   * @param book
+   */
   public void loanBook(Book book) {
-    this.userLoanHistories.add(new UserLoanHistory(this, book.getName(), false));
+    //this.userLoanHistories.add(new UserLoanHistory(this, book.getName(), false,null));
   }
 
   public void returnBook(String bookName) {

@@ -1,4 +1,4 @@
-package com.group.libraryapp.calculator.domain
+package com.group.libraryapp.calculator.domain.book
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -10,7 +10,7 @@ class Book (
 
     val name: String,
     /**
-     * val : id는 한 번 생기면 불변이다.
+     * val : null 불가능 이며 id는 한 번 생기면 불변이다.
      * Long : type 이며
      * ? : null이 가능하다.
      * = null : 초기화

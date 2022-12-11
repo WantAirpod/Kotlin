@@ -1,10 +1,12 @@
 package com.group.libraryapp.service.book
 
-import com.group.libraryapp.calculator.domain.Book
+import com.group.libraryapp.calculator.domain.book.Book
+import com.group.libraryapp.calculator.domain.user.loanhistory.User
+import com.group.libraryapp.calculator.domain.user.loanhistory.UserLoanHistory
 import com.group.libraryapp.domain.book.BookRepository
-import com.group.libraryapp.domain.user.User
+import com.group.libraryapp.domain.user.JavaUser
 import com.group.libraryapp.domain.user.UserRepository
-import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory
+import com.group.libraryapp.domain.user.loanhistory.JavaUserLoanHistory
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistoryRepository
 import com.group.libraryapp.dto.book.request.BookLoanRequest
 import com.group.libraryapp.dto.book.request.BookRequest
@@ -73,9 +75,15 @@ class   BookServiceTest @Autowired constructor(
         //이상한 나라의 엘리스라는 책을 저장한다.
         bookRepository.save(Book("이상한 나라의 엘리스"))
         // 이름:최진영, 나이:null인 유저정보를 저장한다.
-        val saveUser = userRepository.save(User("최진영",null))
+        val saveUser = userRepository.save(User("최진영", null))
         //유저정보와, 책이름, 반납여부를 기록하여 저장한다.
-        userLoanHistoryRepository.save(UserLoanHistory(saveUser,"이상한 나라의 엘리스",false))
+        userLoanHistoryRepository.save(
+            UserLoanHistory(
+                saveUser,
+                "이상한 나라의 엘리스",
+                false
+            )
+        )
         // 이름과 도서명을 던지기 위해 req 를 정한다.
         val req = BookLoanRequest("최진영","이상한 나라의 엘리스")
 
@@ -94,9 +102,15 @@ class   BookServiceTest @Autowired constructor(
         //이상한 나라의 엘리스라는 책을 저장한다.
         bookRepository.save(Book("이상한 나라의 엘리스"))
         // 이름:최진영, 나이:null인 유저정보를 저장한다.
-        val saveUser = userRepository.save(User("최진영",null))
+        val saveUser = userRepository.save(User("최진영", null))
         //유저정보와, 책이름, 반납여부를 기록하여 저장한다.
-        userLoanHistoryRepository.save(UserLoanHistory(saveUser,"이상한 나라의 엘리스",false))
+        userLoanHistoryRepository.save(
+            UserLoanHistory(
+                saveUser,
+                "이상한 나라의 엘리스",
+                false
+            )
+        )
         //리턴 정보를 입력한다.
         val req = BookReturnRequest("최진영","이상한 나라의 엘리스")
 

@@ -1,6 +1,7 @@
 package com.group.libraryapp.dto.user.response;
 
-import com.group.libraryapp.domain.user.User;
+import com.group.libraryapp.calculator.domain.user.loanhistory.User;
+
 
 public class UserResponse {
 
