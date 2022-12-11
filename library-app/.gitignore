@@ -1,0 +1,6 @@
+*.a
+!lib.a
+/TODO
+buld/
+doc/*.txt
+doc/**/.pdf
