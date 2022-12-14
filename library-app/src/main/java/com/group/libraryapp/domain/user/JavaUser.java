@@ -41,6 +41,7 @@ public class JavaUser {
   public JavaUser() {
   }
 
+  //test
   public JavaUser(String name, Integer age) {
     if (name.isBlank()) {
       throw new IllegalArgumentException("이름은 비어 있을 수 없습니다");
