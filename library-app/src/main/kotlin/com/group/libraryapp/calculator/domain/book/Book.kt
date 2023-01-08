@@ -7,6 +7,7 @@ import javax.persistence.Id
 
 @Entity
 class Book (
+    //test
 
     val name: String,
     /**
